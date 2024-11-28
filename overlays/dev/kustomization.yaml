@@ -1,5 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: demo-dev
 
 resources:
   - ../../base
@@ -10,7 +11,7 @@ patches:
   - patch: |
       - op: replace
         path: /spec/template/spec/volumes/0/persistentVolumeClaim/claimName
-        value: dev-base-vm-disk
+        value: dev-vm-disk
       - op: replace
         path: /spec/template/spec/domain/memory/guest
         value: 4096M
